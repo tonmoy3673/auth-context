@@ -1,6 +1,6 @@
 const Footer =()=>{
     return (
-        <div>Footer</div>
+        <div className="py-4 text-center font-semibold text-xl text-gray-700">This is Footer Section</div>
     )
 };
 
