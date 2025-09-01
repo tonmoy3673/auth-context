@@ -2,7 +2,7 @@ import { createContext, useContext, useState, type ReactNode } from "react";
 
 // ============ UserType ======//
 interface UserType {
-  users: {
+  user: {
     name: string;
     password: string;
   };
@@ -10,7 +10,7 @@ interface UserType {
 
 // ============ UserTypeMethod =======//
 interface UserTypeMethod {
-  users: UserType | null;
+  user: UserType | null;
   login: (userData: UserType) => void;
   logout: () => void;
 }
@@ -22,7 +22,7 @@ const AuthContext = createContext<UserTypeMethod | undefined>(undefined);
 export const AuthProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const [users, setUser] = useState<UserType | null>(null);
+  const [user, setUser] = useState<UserType | null>(null);
 
   // ======== login ======//
   const login = (userData: UserType): void => {
@@ -36,7 +36,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
   };
 
   const values = {
-    users,
+    user,
     login,
     logout,
   };

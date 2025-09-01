@@ -6,11 +6,13 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Login from "./pages/Login";
 import Contact from "./pages/Contact";
+import { AuthProvider } from "./context/AuthContext";
 
 const root = document.getElementById("root") as HTMLElement;
 
 ReactDOM.createRoot(root).render(
-  <BrowserRouter>
+<AuthProvider>
+    <BrowserRouter>
     <Routes>
       <Route element={<RootLayout />}>
         <Route index element={<Home />} />
@@ -20,4 +22,5 @@ ReactDOM.createRoot(root).render(
       </Route>
     </Routes>
   </BrowserRouter>
+</AuthProvider>
 );

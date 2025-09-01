@@ -1,8 +1,9 @@
+import Users from "./Users";
 
 const Home = () => {
     return (
         <div>
-            This is Home Page
+           <Users/>
         </div>
     );
 };
