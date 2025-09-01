@@ -1,4 +1,4 @@
-import { createContext, useState, type ReactNode } from "react";
+import { createContext, useContext, useState, type ReactNode } from "react";
 
 // ============ UserType ======//
 interface UserType {
@@ -42,4 +42,13 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
   };
 
   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;
+};
+
+// ============ Custom Hook =========//
+export const useAuthContext = () => {
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error("No Context Found");
+  }
+  return context;
 };
