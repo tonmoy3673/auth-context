@@ -1,9 +1,14 @@
 
 const Navbar = () => {
     return (
-        <div>
-           Navbar 
-        </div>
+        <>
+           <nav>
+            {/* ============ band ======== */}
+                <h2>UserApps</h2>
+                
+
+           </nav>
+        </>
     );
 };
 
