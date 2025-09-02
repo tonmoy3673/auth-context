@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { Link, useParams } from "react-router";
 
 // =========== UserAddress =====//
 interface UserAddress {
@@ -82,8 +82,10 @@ const UserDetails = () => {
           <p>Phone : {userData?.phone}</p>
           <p>Company : {userData?.company?.name}</p>
           <p>Website : {userData?.website}</p>
-          <div>
-            <button></button>
+          <div className="mt-3">
+            <Link to='/'>
+            <button className="text-blue-500 px-2 py-1 cursor-pointe text-3xl"> 🔙</button>
+            </Link>
           </div>
           </div>
         </div>
