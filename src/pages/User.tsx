@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import type { UserDataType } from "./Users";
 
 interface UserProps {
@@ -5,16 +6,17 @@ interface UserProps {
 }
 
 const User = ({ user }: UserProps) => {
-
   return (
     <div className="border rounded-lg p-4 shadow bg-white">
       <p>ID : {user?.id}</p>
       <p>Name : {user?.name}</p>
       <p>Email : {user?.email}</p>
       <div className="mt-3 text-center">
-        <button className="text-sm bg-blue-400 text-white px-3 py-1 rounded-md cursor-pointer hover:-translate-y-1 hover:bg-amber-500 transition-all hover:scale-y-100 hover:scale-x-110 duration-150">
-          Details
-        </button>
+        <Link to={`/user-details/${user.id}`}>
+          <button className="text-sm bg-blue-400 text-white px-3 py-1 rounded-md cursor-pointer hover:-translate-y-1 hover:bg-amber-500 transition-all hover:scale-y-100 hover:scale-x-110 duration-150">
+            Details
+          </button>
+        </Link>
       </div>
     </div>
   );
