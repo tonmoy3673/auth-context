@@ -5,7 +5,7 @@ interface UserProps {
 }
 
 const User = ({ user }: UserProps) => {
-  console.log(user);
+
   return (
     <div className="border rounded-lg p-4 shadow bg-white">
       <p>ID : {user?.id}</p>

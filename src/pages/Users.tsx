@@ -65,20 +65,24 @@ const Users = () => {
     };
     getUsers();
   }, []);
-  console.log("Users", users);
-  return  (
+
+  return (
     <div>
-    {loading ? (
-      <p className="text-center text-amber-500 text-2xl py-2 font-semibold">
-        Loading ...
-      </p>
-    ) : (
-        users && users.length>0? (
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-5 items-center justify-center mb-8">{users.map((user)=> <User key={user.id} user={user}/>)}</div>
-        ): (<p>No User Data Found!</p>)
-         )}
-  </div>
-  )
+      {loading ? (
+        <p className="text-center text-amber-500 text-2xl py-2 font-semibold">
+          Loading ...
+        </p>
+      ) : users && users.length > 0 ? (
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-5 items-center justify-center mb-8">
+          {users.map((user) => (
+            <User key={user.id} user={user} />
+          ))}
+        </div>
+      ) : (
+        <p>No User Data Found!</p>
+      )}
+    </div>
+  );
 };
 
 export default Users;
