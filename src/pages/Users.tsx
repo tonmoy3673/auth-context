@@ -74,7 +74,7 @@ const Users = () => {
       </p>
     ) : (
         users && users.length>0? (
-            <div className="grid grid-cols-2 md:grid-cols-4 items-center justify-center bg-amber-300">{users.map((user)=> <User key={user.id} user={user}/>)}</div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-5 items-center justify-center">{users.map((user)=> <User key={user.id} user={user}/>)}</div>
         ): (<p>No User Data Found!</p>)
          )}
   </div>
