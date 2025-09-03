@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useAuthContext } from "../context/AuthContext";
+import { Link } from "react-router";
 
 const Login = () => {
   const [userName, setUserName] = useState<string>("");
@@ -47,12 +48,14 @@ const Login = () => {
             />
           </div>
           <div className="mt-5 text-center">
+            <Link to='/'>
             <button
               className="text-sm bg-blue-400 text-white px-8 py-[6px] rounded-md cursor-pointer hover:-translate-y-1 hover:bg-amber-500 transition-all hover:scale-y-100 hover:scale-x-110 duration-150"
               type="submit"
             >
               login
             </button>
+            </Link>
           </div>
         </form>
       </div>

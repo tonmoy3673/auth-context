@@ -1,6 +1,14 @@
 import { NavLink } from "react-router";
+import { useAuthContext } from "../../context/AuthContext";
 
 const Navbar = () => {
+  const { user, logout } = useAuthContext();
+
+  // ==== handleLogOut ======//
+  // const handleLogOut = () => {
+  //   logout();
+  // };
+
   return (
     <>
       <nav className="py-5 flex justify-between">
@@ -17,7 +25,7 @@ const Navbar = () => {
           >
             Home
           </NavLink>
-           <NavLink
+          <NavLink
             className={({ isActive }) =>
               `${
                 isActive ? "text-blue-500" : "text-gray-600"
@@ -27,7 +35,7 @@ const Navbar = () => {
           >
             About
           </NavLink>
-           <NavLink
+          <NavLink
             className={({ isActive }) =>
               `${
                 isActive ? "text-blue-500" : "text-gray-600"
@@ -37,6 +45,26 @@ const Navbar = () => {
           >
             Contact
           </NavLink>
+          {user === null ? (
+            <NavLink
+              to="/login"
+              className={({ isActive }) =>
+                `${
+                  isActive ? "text-blue-500" : "text-gray-600"
+                } font-semibold text-lg`
+              }
+            >
+              Login
+            </NavLink>
+          ) : (
+            <NavLink
+              className="font-semibold text-gray-600 text-lg hover:text-red-500"
+              to="/login"
+              onClick={logout}
+            >
+              LogOut
+            </NavLink>
+          )}
         </ul>
       </nav>
     </>
