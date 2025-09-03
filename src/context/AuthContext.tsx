@@ -2,10 +2,10 @@ import { createContext, useContext, useState, type ReactNode } from "react";
 
 // ============ UserType ======//
 interface UserType {
-  user: {
+  
     name: string;
     password: string;
-  };
+ 
 }
 
 // ============ UserTypeMethod =======//
