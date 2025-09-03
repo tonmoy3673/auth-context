@@ -35,11 +35,11 @@ export interface UserDataType {
 const UserDetails = () => {
   const [userData, setUserData] = useState<UserDataType | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
-  const {userId} = useParams<{ id: string }>();
+  const { id } = useParams<{ id: string }>();
 
   // ====== getUserDetails ======//
   useEffect(() => {
-    if (!userId) return;
+    if (!id) return;
     const fetchUserData = async (id: number): Promise<void> => {
       setLoading(true);
       try {
@@ -50,7 +50,7 @@ const UserDetails = () => {
           throw new Error("No Response Found!");
         }
         const data = await response.json();
-        console.log('data',data);
+        console.log("data", data);
         setUserData(data);
       } catch (err: unknown) {
         if (err instanceof Error) {
@@ -64,32 +64,38 @@ const UserDetails = () => {
         setLoading(false);
       }
     };
-    fetchUserData(userId);
-  }, [userId]);
+    fetchUserData(Number(id));
+  }, [id]);
   console.log("userData", userData);
   return (
     <>
-      {loading ? (<p className="text-center text-amber-500 text-2xl py-2 font-semibold">Loading ...</p>):userData? (
+      {loading ? (
+        <p className="text-center text-amber-500 text-2xl py-2 font-semibold">
+          Loading ...
+        </p>
+      ) : userData ? (
         <div className="flex justify-center items-center ">
           <div className=" bg-amber-100 p-10 rounded-md">
             <p>ID : {userData?.id.toString()}</p>
-          <p>Name : {userData?.name}</p>
-          <p>Email : {userData?.email}</p>
-          <p>
-            Address : {userData?.address?.street}.{" "}
-            {userData?.address?.city}
-          </p>
-          <p>Phone : {userData?.phone}</p>
-          <p>Company : {userData?.company?.name}</p>
-          <p>Website : {userData?.website}</p>
-          <div className="mt-3">
-            <Link to='/'>
-            <button className="text-blue-500 px-2 py-1 cursor-pointe text-3xl"> 🔙</button>
-            </Link>
-          </div>
+            <p>Name : {userData?.name}</p>
+            <p>Email : {userData?.email}</p>
+            <p>
+              Address : {userData?.address?.street}. {userData?.address?.city}
+            </p>
+            <p>Phone : {userData?.phone}</p>
+            <p>Company : {userData?.company?.name}</p>
+            <p>Website : {userData?.website}</p>
+            <div className="mt-3">
+              <Link to="/">
+                <button className="text-blue-500 px-2 py-1 cursor-pointe text-3xl">
+                  {" "}
+                  🔙
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
-      ) :(
+      ) : (
         <p>No Data Found</p>
       )}
     </>

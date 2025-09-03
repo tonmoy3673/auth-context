@@ -20,7 +20,7 @@ ReactDOM.createRoot(root).render(
           <Route path="about" element={<About />} />
           <Route path="login" element={<Login />} />
           <Route path="contact" element={<Contact />} />
-          <Route path="/user-details/:userId" element={<UserDetails />} />
+          <Route path="/user-details/:id" element={<UserDetails />} />
         </Route>
       </Routes>
     </BrowserRouter>
