@@ -15,7 +15,7 @@ const Login = () => {
     setPassword("");
     navigate('/')
   };
-  console.log("UserAuth", user);
+ 
   return (
     <div>
       <div>

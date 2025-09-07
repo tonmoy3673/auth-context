@@ -50,7 +50,7 @@ const UserDetails = () => {
           throw new Error("No Response Found!");
         }
         const data = await response.json();
-        console.log("data", data);
+    
         setUserData(data);
       } catch (err: unknown) {
         if (err instanceof Error) {
@@ -66,7 +66,7 @@ const UserDetails = () => {
     };
     fetchUserData(Number(id));
   }, [id]);
-  console.log("userData", userData);
+
   return (
     <>
       {loading ? (
