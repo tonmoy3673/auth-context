@@ -4,11 +4,6 @@ import { useAuthContext } from "../../context/AuthContext";
 const Navbar = () => {
   const { user, logout } = useAuthContext();
 
-  // ==== handleLogOut ======//
-  // const handleLogOut = () => {
-  //   logout();
-  // };
-
   return (
     <>
       <nav className="py-5 flex justify-between">

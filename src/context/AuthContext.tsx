@@ -43,7 +43,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
 };
 
 // ============ Custom Hook =========//
-export const useAuthContext = () => {
+export const useAuthContext = () :UserTypeMethod  => {
   const context = useContext(AuthContext);
   if (!context) {
     throw new Error("No Context Found");
